@@ -6,9 +6,10 @@
 //! receiver pairs.  A [`Channel`] can both send and receive.
 //!
 //! # Optional Features
-//!  - **futures-core**: Implement [`Stream`](futures_core::Stream) for
+//!  - **futures_core_3**: Implement [`Stream`](futures_core_3::Stream) for
 //!    [`Channel`] (generic `T` must be `Option<Item>`)
-//!  - **pasts**: Implement [`Notifier`](pasts::Notifier) for [`Channel`]
+//!  - **event_iterator**: Implement
+//!    [`EventIterator`](event_iterator::EventIterator) for [`Channel`]
 //!
 //! # Getting Started
 //!

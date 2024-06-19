@@ -1,5 +1,5 @@
 # Whisk
-# Copyright © 2022-2023 Jeron Aldaron Lau.
+# Copyright © 2022-2024 Jeron Aldaron Lau.
 #
 # Licensed under any of:
 #  - Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
@@ -10,7 +10,7 @@
 
 [package]
 name = "whisk"
-version = "0.12.1"
+version = "0.13.0"
 license = "Apache-2.0 OR BSL-1.0 OR MIT"
 description = "Simple and fast lockless async channels"
 repository = "https://github.com/ardaku/whisk"
@@ -24,24 +24,24 @@ categories = [
     "hardware-support",
     "no-std",
 ]
-keywords = ["channel", "actor", "mpmc", "notifier", "pasts"]
+keywords = ["channel", "actor", "mpmc", "notifier", "event_iterator"]
 readme = "README.md"
 edition = "2021"
 rust-version = "1.65"
 
 [[example]]
 name = "tokio"
-required-features = ["futures-core"]
+required-features = ["futures_core_3"]
 
-[dependencies.futures-core]
+[dependencies.futures_core_3]
+package = "futures-core"
 version = "0.3"
 optional = true
 default-features = false
 
-[dependencies.pasts]
-version = "0.14"
+[dependencies.event_iterator]
+version = "0.1"
 optional = true
-default-features = false
 
 [dev-dependencies]
 async_main = { version = "0.4", features = ["pasts"] }

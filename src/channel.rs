@@ -9,11 +9,11 @@ use crate::{wake_list::WakeHandle, Queue};
 
 /// An MPMC channel with both send and receive capabilities
 ///
-/// Enable the **`futures-core`** feature for `Channel` to implement
-/// [`Stream`](futures_core::Stream) (generic `T` must be `Option<Item>`).
+/// Enable the **`futures_core_3`** feature for `Channel` to implement
+/// [`Stream`](futures_core_3::Stream) (generic `T` must be `Option<Item>`).
 ///
-/// Enable the **`pasts`** feature for `Channel` to implement
-/// [`Notifier`](pasts::Notifier).
+/// Enable the **`event_iterator`** feature for `Channel` to implement
+/// [`EventIterator`](event_iterator::EventIterator).
 pub struct Channel<T = (), U: ?Sized = ()>(Arc<Queue<T, U>>, WakeHandle);
 
 impl<T, U: ?Sized> Drop for Channel<T, U> {
@@ -89,19 +89,23 @@ impl<T, U: ?Sized> Future for Channel<T, U> {
     }
 }
 
-#[cfg(feature = "pasts")]
-impl<T, U: ?Sized> pasts::notify::Notify for Channel<T, U> {
-    type Event = T;
+#[cfg(feature = "event_iterator")]
+impl<T, U: ?Sized> event_iterator::EventIterator for Channel<T, U> {
+    type Event<'me> = T where Self: 'me;
 
     #[inline(always)]
-    fn poll_next(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<T> {
+    fn poll_next(
+        self: Pin<&mut Self>,
+        cx: &mut Context<'_>,
+    ) -> Poll<Option<T>> {
         let this = self.get_mut();
-        this.0.data.take(cx, &mut this.1)
+
+        this.0.data.take(cx, &mut this.1).map(Some)
     }
 }
 
-#[cfg(feature = "futures-core")]
-impl<T, U: ?Sized> futures_core::Stream for Channel<Option<T>, U> {
+#[cfg(feature = "futures_core_3")]
+impl<T, U: ?Sized> futures_core_3::Stream for Channel<Option<T>, U> {
     type Item = T;
 
     #[inline(always)]

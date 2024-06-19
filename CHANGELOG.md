@@ -4,6 +4,11 @@ All notable changes to `whisk` will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://github.com/AldaronLau/semver).
 
+## [0.13.0] - 2024-06-19
+### Changed
+ - Switched out `pasts` for `event_iterator`
+ - Renamed `futures-core` feature to `futures_core_3`
+
 ## [0.12.1] - 2023-06-02
 ### Fixed
  - Weirdness with `Cargo.toml`'s `[[example]]` section and no-std example in CI.

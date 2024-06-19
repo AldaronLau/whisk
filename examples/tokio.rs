@@ -4,7 +4,7 @@ use std::{
     task::{Context, Poll},
 };
 
-use futures_core::Stream;
+use futures_core_3::Stream;
 use tokio::task;
 use tokio_stream::StreamExt;
 use whisk::Channel;
