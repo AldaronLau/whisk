@@ -16,7 +16,14 @@ description = "Simple and fast lockless async channels"
 repository = "https://github.com/ardaku/whisk"
 documentation = "https://docs.rs/whisk"
 homepage = "https://github.com/ardaku/whisk/blob/stable/CHANGELOG.md"
-include = ["README.md", "src/*", "examples/tokio.rs"]
+include = [
+    "/LICENSE_APACHE",
+    "/LICENSE_BOOST",
+    "/LICENSE_MIT",
+    "/README.md",
+    "/src/*",
+    "/examples/tokio.rs",
+]
 categories = [
     "asynchronous",
     "concurrency",
