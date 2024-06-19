@@ -27,7 +27,7 @@ categories = [
 keywords = ["channel", "actor", "mpmc", "notifier", "event_iterator"]
 readme = "README.md"
 edition = "2021"
-rust-version = "1.65"
+rust-version = "1.70"
 
 [[example]]
 name = "tokio"
@@ -46,7 +46,7 @@ optional = true
 [dev-dependencies]
 async_main = { version = "0.4", features = ["pasts"] }
 dl_api = "0.4"
-flume = "0.10"
+flume = "0.11"
 futures = "0.3"
 libm = "0.2"
 ntest = "0.9"

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://github.com/AldaronLau/
 ### Changed
  - Switched out `pasts` for `event_iterator`
  - Renamed `futures-core` feature to `futures_core_3`
+ - Bumped MSRV to 1.70
 
 ## [0.12.1] - 2023-06-02
 ### Fixed
