@@ -18,15 +18,15 @@ enable implementation of traits from other crates) - and also works on `no_std`!
 
 ## Benchmarks
 
-Naïve benchmarks for v0.10.0 actor on pasts runtime (compared with dynamic
-library):
+Naïve benchmarks for v0.13.0 actor on pasts runtime (compared with dynamic
+library) with Rust 1.78.0:
 
 > ```
-> Dynamic library: 6ns
-> Whisk (2-thread): 4.396µs
-> Flume (2-thread): 4.594µs
-> Whisk (1-thread): 277ns
-> Flume (1-thread): 325ns
+> Dynamic library: 12ns
+> Whisk (2-thread): 1.102µs
+> Flume (2-thread): 1.013µs
+> Whisk (1-thread): 1.151µs
+> Flume (1-thread): 1.532µs
 > ```
 
 ## MSRV
